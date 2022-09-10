@@ -13,27 +13,32 @@ function updateBuffer() {
 	}
 }
 
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
 addEventListener('resize', updateBuffer);
 
 window.onload = () => {
 	updateBuffer();
 	fetch("/titles.txt").then(r => r.text())
 		.then(data => {
-			const titles = data.split("\n");
-			const titleElement = document.getElementById("titles");
-			let i = 0;
-			console.log(titles)
-			setInterval(() => {
-				titleElement.setAttribute("class", "fadeout");
-				setTimeout(() => {
+			(async () => {
+				const titles = data.split("\n");
+				const titleElement = document.getElementById("titles");
+				let i = 0;
+				console.log(titles)
+				setInterval(async () => {
+					titleElement.setAttribute("class", "fadeout");
 					titleElement.style.opacity = '0%';
+					await delay(500);
+					titleElement.innerText = titles[i % titles.length];
 					i += 1;
-					setTimeout(() => {
-						titleElement.innerText = titles[i % titles.length];
-						titleElement.style.opacity = '100%';
-						titleElement.setAttribute("class", "fadein");
-					}, 500);
-				}, 500);
-			}, 4000);
+					titleElement.setAttribute("class", "fadein");
+					titleElement.style.opacity = '100%';
+					await delay(500);
+				}, 4000);
+			})();
+
 		});
 }
