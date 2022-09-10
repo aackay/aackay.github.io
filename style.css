@@ -1,0 +1,76 @@
+@font-face { font-family: roboto-regular; 
+			 src: url('Roboto-Regular.ttf'); } 
+
+html, body {
+  height: 100%;
+  width: 100%;
+	background-color: #21D4FD;
+	background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+	overflow: hidden;
+	font-family: roboto-regular;
+}
+
+.container {
+	display: flex;
+  align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	
+	position: absolute;
+	min-width: 75vmin;
+	min-height: 50vmin;
+	padding: 2em;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	border-radius: 10vmin;
+	background: white;
+}
+
+.buffer {
+	height: 100%;
+	width: 10vmin;
+}
+
+.pfp {
+	border-radius: 100%;
+}
+
+.mainpfp {
+	height: 25vmin;
+	width: 25vmin;
+}
+
+.line-break {
+  width: 100%;
+}
+
+a {
+	color: black;
+}
+
+.header {
+	font-size: 2em;
+	font-weight: bold;
+	display: inline-block
+}
+
+@keyframes fadein {
+  0% {opacity: 0%;}
+  100% {opacity: 100%;}
+}
+
+@keyframes fadeout {
+  0% {opacity: 100%;}
+  100% {opacity: 0%;}
+}
+
+.fadein {
+	animation: fadein 0.5s;
+}
+
+.fadeout {
+	animation: fadeout 0.5s;
+}
