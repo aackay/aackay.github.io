@@ -27,11 +27,11 @@ window.onload = () => {
 				titleElement.setAttribute("class", "fadeout");
 				setTimeout(() => {
 					titleElement.style.opacity = '0%';
-					titleElement.innerText = titles[i % titles.length];
 					i += 1;
 					setTimeout(() => {
-						titleElement.setAttribute("class", "fadein");
+						titleElement.innerText = titles[i % titles.length];
 						titleElement.style.opacity = '100%';
+						titleElement.setAttribute("class", "fadein");
 					}, 500);
 				}, 500);
 			}, 4000);
