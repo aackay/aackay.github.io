@@ -56,7 +56,7 @@ a {
 .header {
 	font-size: 2em;
 	font-weight: bold;
-	display: inline-block
+	display: inline-block;
 }
 
 @keyframes fadein {
