@@ -37,7 +37,7 @@ document.body.onload = async() => {
         contentPre.appendChild(lineElem);
         contentPre.appendChild(cursor);
         let link;
-        contentPre.appendChild(document.createElement("br"));
+        if (lineIndex < lines.length - 1) contentPre.appendChild(document.createElement("br"));
         console.log(line)
         while (++textIndex < line.length) {
             const char = line[textIndex]
