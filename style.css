@@ -10,6 +10,7 @@ html body {
     padding: 0;
 
     font-family: "mono", sans-serif;
+    font-size: 2vmin;
 }
 
 #buffer {
