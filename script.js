@@ -1,6 +1,10 @@
+let startTime = 0;
+let dt = 0;
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
 
 document.body.onload = async() => {
     const contentPre = document.getElementById("content");
@@ -9,17 +13,13 @@ document.body.onload = async() => {
     const cursor = document.createElement("span");
     cursor.setAttribute("class", "cursor");
     cursor.innerText = "▂";
-
-    console.log(contentPre)
     const text = await (await fetch("content.txt")).text();
     const filteredText = text.replace(/\[(.+)\]+/gm, '')
-    console.log(filteredText)
 
-    const r = /\^([^(?:\[)]+)\[(.+)\]+/gm
+    const r = /\^([^(?:\[)]+)\[(.+)\]+/gm;
     let m;
 
     while ((m = r.exec(text)) !== null) {
-        console.log(m[1])
     }
 
     buffer.innerText = filteredText;
@@ -36,10 +36,9 @@ document.body.onload = async() => {
         contentPre.appendChild(lineElem);
         let link;
         if (lineIndex < lines.length - 1) contentPre.appendChild(document.createElement("br"));
-        console.log(line)
         while (++textIndex < line.length) {
+				  	startTime = Date.now()
             const char = line[textIndex]
-            console.log(inLink)
             if (char == " ") {
                 const space = document.createElement("span");
                 space.innerHTML = "&nbsp;";
@@ -57,7 +56,8 @@ document.body.onload = async() => {
             } else {
                 lineElem.innerHTML += char;
             }
-            await sleep(6)
+            await sleep(Math.max(1 - dt, 0));
+					  dt = Date.now() - startTime;
         }
     }
 
