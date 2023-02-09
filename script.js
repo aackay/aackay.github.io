@@ -13,7 +13,9 @@ document.body.onload = async () => {
 	const cursor = document.createElement("span");
 	cursor.setAttribute("class", "cursor");
 	cursor.innerText = "▂";
-	const text = await (await fetch(window.location.pathname + "content.txt")).text();
+	let path = window.location.pathname
+	path += path.endsWith("/") ? "" : "/"
+	const text = await (await fetch(path + "content.txt")).text();
 	const filteredText = text.replace(/\[(.+)\]+/gm, '')
 
 	const r = /\^([^(?:\[)]+)\[(.+)\]+/gm;
