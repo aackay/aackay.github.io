@@ -58,8 +58,8 @@ document.body.onload = async () => {
 			} else {
 				lineElem.innerHTML += char;
 			}
-			await sleep(Math.max(1 - dt, 0));
 			dt = Date.now() - startTime;
+			await sleep(Math.max(1 - dt, 0));
 		}
 	}
 
