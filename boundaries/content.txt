@@ -1,5 +1,5 @@
 ┌─────────────────────────────────────────────────┐
-│ Boundaries                                 ^Home[/home] │
+│ Boundaries                                 ^Home[/] │
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │ > You can almost always vent to me just please  │
